@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuestra empresa</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .tabs {
+            display: flex;
+            margin-bottom: 20px;
+        }
+        .tab-link {
+            padding: 10px 20px;
+            cursor: pointer;
+            background-color: #3d6cb3;
+            border: 1px solid #133b69;
+            margin-right: 5px;
+            border-radius: 5px 5px 0 0;
+        }
+        .tab-link.active {
+            background-color: #19c3da;
+        }
+        .tab-content {
+            display: none;
+            padding: 20px;
+            border: 1px solid #737e8b;
+            border-radius: 0 5px 5px 5px;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    
+<h1>Inside systems</h1>
+<div class="tabs">
+    <div class="tab-link active" data-tab="curso1">Definicion</div>
+    <div class="tab-link" data-tab="curso2">Empleados</div>
+    <div class="tab-link" data-tab="curso3">necesito</div>
+</div>
+
+<div id="curso1" class="tab-content active">
+    <h2>Asi que en cuanto a Inside Systems</h2>
+    <ul>
+        <li>Somos:</li>
+        <li>Hacemos</li>
+        <li>Nuestros precios:</li>
+    </ul>
+</div>
+
+<div id="curso2" class="tab-content">
+    <h2>estamos orgullosos que nuestro equipo este conformado por</h2>
+    <ul>
+        <li>Anya Musume</li>
+        <li>Markus Eriksen</li>
+        <li>Damon Baird</li>
+        <li>Frank bow</li>
+        <li>Marcus Fenix</li>
+        <li>Barney stinson</li>
+        <li>jhon marnston</li>
+        <li>carl jhonson</li>
+        <li>Frank West</li>
+        <li>Morena Fonte</li>
+        <li>Clayton .C</li>
+        <li>Benjamin .C</li>
+        <li>Anthony .C</li>
+        <li>Gary .C</li>
+    </ul>
+</div>
+
+<div id="curso3" class="tab-content">
+    <h2>Lista de precios</h2>
+    <ul>
+        <li>ya no</li>
+        <li>puedo</li>
+        <li>mas con esto</li>
+    </ul>
+</div>
+
+<script>
+    // Script para manejar las pestañas
+    document.addEventListener('DOMContentLoaded', function() {
+        const tabLinks = document.querySelectorAll('.tab-link');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        tabLinks.forEach(tab => {
+            tab.addEventListener('click', function() {
+                // Remover la clase 'active' de todas las pestañas y contenidos
+                tabLinks.forEach(t => t.classList.remove('active'));
+                tabContents.forEach(t => t.classList.remove('active'));
+
+                // Agregar la clase 'active' a la pestaña y contenido seleccionado
+                this.classList.add('active');
+                const tabId = this.getAttribute('data-tab');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+    });
+</script>
+
+</body>
+</html>

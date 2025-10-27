@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CPEGuevara Información y Comunicados</title>
+    <link rel="stylesheet" href="BaseGuevara.css"> 
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        .logo img {
+            width: 100px;
+            height: auto;
+        }
+        .nav-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .content {
+            padding: 20px;
+            background-color: rgb(119, 5, 5);
+            margin: 20px auto;
+            width: 90%;
+            max-width: 800px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            margin-top: 20px;
+        }
+        footer .logo img {
+            width: 80px;
+            height: auto;
+        }
+        #logoutBtn {
+            background-color: #ff4444;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        #logoutBtn:hover {
+            background-color: #cc0000;
+        }
+        .promedio-general {
+            margin-top: 20px;
+            font-weight: bold;
+            text-align: right;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+        <img src="data:image/png;base64,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" alt="logo escuela">
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="inicioGuevara_alumno.html">Inicio</a></li>
+                <li><a href="TerminalOfNotes_alumno.html">Notas</a></li>
+                <li><a href="PersonalAlumno.html">Perfil</a></li>
+                <li><a href="ayudaAlum.html">Servicio tecnico</a></li> 
+            </ul>
+        </nav>
+        <li><button id="logoutBtn">Cerrar sesión</button></li>
+    </header>
+    <main>
+        <h1 id="tituloboletin">Boletín de Notas</h1>
+        <div class="content">
+            <div id="Boletin-7-1" class="tab-content active">
+                <h1 class="h1">Boletín 7°2</h1>
+                <table class="table" id="tablaNotas">
+                    <thead>
+                        <tr>
+                            <th scope="col">Asignatura</th>
+                            <th scope="col">Primer Trimestre</th>
+                            <th scope="col">Segundo Trimestre</th>
+                            <th scope="col">Tercer Trimestre</th>
+                            <th scope="col">Promedio</th>
+                            <th scope="col">Comentarios</th>
+                        </tr>
+                    </thead>
+                    <tbody id="notasTableBody">
+                        <!-- Se llenará dinámicamente -->
+                    </tbody>
+                </table>
+                <div class="promedio-general">
+                    Promedio General: <span id="promedio">0.00</span>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="footer">
+        <p>© Inside Systems 2024</p>
+        <div class="logo">
+            <img height="80px" width="80px" src="https://somebodyiswatchingmeeeeeee.my.canva.site/media/99f534fd7cab6004ad1b34629dfe0fb3.png" alt="Inside Systems logo">
+        </div>
+    </footer>
+
+    <script>
+        let notasData = [];
+        function debug(message) {
+            const debugPanel = document.getElementById('debug-panel');
+            if (debugPanel) {
+                const msgElement = document.createElement('div');
+                msgElement.textContent = `${new Date().toLocaleTimeString()}: ${message}`;
+                debugPanel.appendChild(msgElement);
+                debugPanel.scrollTop = debugPanel.scrollHeight;
+            }
+            console.log(message);
+        }
+        // Inicialización de materias
+        const materias = [
+            "Hardware",
+            "Redes",
+            "Programación",
+            "Autogestión"
+        ];
+
+        async function verificarSesion() {
+            // Crear un elemento para mostrar mensajes de depuración
+            if (!document.getElementById('debug-panel')) {
+                const debugPanel = document.createElement('div');
+                debugPanel.id = 'debug-panel';
+                debugPanel.style.position = 'fixed';
+                debugPanel.style.top = '10px';
+                debugPanel.style.right = '10px';
+                debugPanel.style.width = '300px';
+                debugPanel.style.maxHeight = '400px';
+                debugPanel.style.overflow = 'auto';
+                debugPanel.style.backgroundColor = 'rgba(0,0,0,0.8)';
+                debugPanel.style.color = 'white';
+                debugPanel.style.padding = '10px';
+                debugPanel.style.zIndex = '9999';
+                debugPanel.style.fontSize = '12px';
+                debugPanel.style.fontFamily = 'monospace';
+                document.body.appendChild(debugPanel);
+            }
+            
+            function debug(message) {
+                const debugPanel = document.getElementById('debug-panel');
+                if (debugPanel) {
+                    const msgElement = document.createElement('div');
+                    msgElement.textContent = `${new Date().toLocaleTimeString()}: ${message}`;
+                    debugPanel.appendChild(msgElement);
+                    debugPanel.scrollTop = debugPanel.scrollHeight;
+                }
+                console.log(message);
+            }
+            
+            try {
+                debug('Iniciando verificación de sesión');
+                
+                // Modo de prueba - Comenta esta sección para activar el modo de prueba
+                const urlParams = new URLSearchParams(window.location.search);
+                const testMode = urlParams.get('test');
+                
+                if (testMode === 'true') {
+                    debug('Modo de prueba activado');
+                    // Datos de prueba para un alumno
+                    window.userData = {
+                        user: {
+                            ID_usuario: 1,
+                            nombre: 'Alumno de Prueba',
+                            rol: 'alumno'
+                        }
+                    };
+                    debug('Datos de prueba creados: ' + JSON.stringify(window.userData));
+                    setTimeout(() => {
+                        debug('Llamando a cargarNotas desde modo prueba');
+                        cargarNotas();
+                    }, 500);
+                    return;
+                }
+                
+                // Verificación normal de sesión
+                debug('Realizando fetch a /api/sesion');
+                const res = await fetch('/api/sesion', {
+                    credentials: 'include'
+                });
+                
+                debug('Respuesta de /api/sesion: ' + res.status + ' ' + res.statusText);
+                
+                if (!res.ok) {
+                    debug('Respuesta no OK, redirigiendo a login');
+                    // Retrasar la redirección para ver los mensajes de depuración
+                    setTimeout(() => {
+                        window.location.href = '/LoguinGuevara.html';
+                    }, 3000);
+                    return;
+                }
+                
+                const userData = await res.json();
+                debug('Datos de usuario recibidos: ' + JSON.stringify(userData));
+                
+                if (!userData.logged || !userData.user || !userData.user.usuario) {
+                    debug('Datos de usuario inválidos, redirigiendo a login');
+                    // Retrasar la redirección para ver los mensajes de depuración
+                    setTimeout(() => {
+                        window.location.href = '/LoguinGuevara.html';
+                    }, 3000);
+                    return;
+                }
+                
+                // Adaptar la estructura de datos para que funcione con el resto del código
+                if (!userData.user.ID_usuario) {
+                    debug('Adaptando estructura de datos de usuario');
+                    if (userData.user.id != null) {
+                        userData.user.ID_usuario = parseInt(userData.user.id);
+                    }
+                }
+                
+                window.userData = userData; // Guardar datos de usuario globalmente
+                debug('Datos de usuario guardados globalmente');
+                
+                setTimeout(() => {
+                    debug('Llamando a cargarNotas');
+                    cargarNotas();
+                }, 500);
+            } catch (error) {
+                debug('Error en verificarSesion: ' + error.message);
+                // Retrasar la redirección para ver los mensajes de depuración
+                setTimeout(() => {
+                    window.location.href = '/LoguinGuevara.html';
+                }, 3000);
+            }
+        }
+
+        async function cargarNotas() {
+            try {
+                let alumnoId = null;
+
+                try {
+                    debug('Realizando fetch a /api/alumnos/me');
+                    const meRes = await fetch('/api/alumnos/me', {
+                        method: 'GET',
+                        credentials: 'include'
+                    });
+                    debug(`Respuesta de /api/alumnos/me: ${meRes.status} ${meRes.statusText}`);
+                    if (meRes.ok) {
+                        const meData = await meRes.json();
+                        alumnoId = meData.id;
+                        debug(`Usando alumnoId recibido: ${alumnoId}`);
+                    } else {
+                        debug('No se pudo obtener alumno actual, usando respaldo');
+                    }
+                } catch (e) {
+                    debug('Error consultando /api/alumnos/me: ' + e.message);
+                }
+
+                if (!alumnoId) {
+                    alumnoId = 1; // ID de prueba como último recurso
+                    debug('Usando ID numérico de prueba: ' + alumnoId);
+                }
+
+                debug(`Realizando fetch a /api/notas/${alumnoId}`);
+                const notasResponse = await fetch(`/api/notas/${alumnoId}`, {
+                    method: 'GET',
+                    credentials: 'include'
+                });
+                debug(`Respuesta de /api/notas: ${notasResponse.status} ${notasResponse.statusText}`);
+                if (!notasResponse.ok) {
+                    throw new Error('Error al cargar notas');
+                }
+
+                const data = await notasResponse.json();
+                debug(`Datos recibidos: ${JSON.stringify(data).substring(0, 100)}...`);
+
+                if (Array.isArray(data) && data.length > 0) {
+                    notasData = data.map(n => ({
+                        materia: n.materia,
+                        primer: n.primer ?? null,
+                        segundo: n.segundo ?? null,
+                        tercero: n.tercero ?? null,
+                        comentarios: n.comentarios ?? ""
+                    }));
+                } else {
+                    debug('No se encontraron notas, usando plantilla vacía con materias predefinidas');
+                    notasData = materias.map(materia => ({
+                        materia,
+                        primer: null,
+                        segundo: null,
+                        tercero: null,
+                        comentarios: ""
+                    }));
+                }
+
+                mostrarNotas();
+            } catch (error) {
+                debug('Error general en cargarNotas: ' + error.message);
+                notasData = materias.map(materia => ({
+                    materia,
+                    primer: null,
+                    segundo: null,
+                    tercero: null,
+                    comentarios: ""
+                }));
+                mostrarNotas();
+            }
+        }
+
+        function mostrarNotas() {
+            debug('Iniciando mostrarNotas()');
+            debug(`Datos a mostrar: ${JSON.stringify(notasData).substring(0, 100)}...`);
+            
+            const tbody = document.getElementById('notasTableBody');
+            if (!tbody) {
+                debug('ERROR: No se encontró el elemento notasTableBody');
+                return;
+            }
+            tbody.innerHTML = '';
+            
+            let sumaNotas = 0;
+            let cantidadNotas = 0;
+            
+            notasData.forEach(nota => {
+                const tr = document.createElement('tr');
+                
+                // Materia
+                const tdMateria = document.createElement('td');
+                tdMateria.textContent = nota.materia;
+                tr.appendChild(tdMateria);
+                
+                // Trimestres
+                [nota.primer, nota.segundo, nota.tercero].forEach(valor => {
+                    const td = document.createElement('td');
+                    td.textContent = valor || '-';
+                    tr.appendChild(td);
+                });
+                
+                // Promedio
+                const tdPromedio = document.createElement('td');
+                const valores = [nota.primer, nota.segundo, nota.tercero]
+                    .filter(v => v !== null && !isNaN(v))
+                    .map(v => parseFloat(v));
+                
+                if (valores.length > 0) {
+                    const promedio = valores.reduce((a, b) => a + b, 0) / valores.length;
+                    tdPromedio.textContent = promedio.toFixed(2);
+                    sumaNotas += promedio;
+                    cantidadNotas++;
+                } else {
+                    tdPromedio.textContent = '-';
+                }
+                tr.appendChild(tdPromedio);
+                
+                // Comentarios
+                const tdComentarios = document.createElement('td');
+                tdComentarios.textContent = nota.comentarios || '-';
+                tr.appendChild(tdComentarios);
+                
+                tbody.appendChild(tr);
+            });
+            
+            // Actualizar promedio general
+            const promedioElement = document.getElementById('promedio');
+            if (promedioElement && cantidadNotas > 0) {
+                promedioElement.textContent = (sumaNotas / cantidadNotas).toFixed(2);
+            }
+        }
+
+        // Cerrar sesión
+        document.getElementById('logoutBtn').addEventListener('click', async () => {
+            try {
+                const res = await fetch('/api/logout', {
+                    method: 'POST',
+                    credentials: 'include'
+                });
+                const data = await res.json();
+                if (res.ok) {
+                    window.location.href = "/LoguinGuevara.html";
+                } else {
+                    console.error("Error logout:", data.message);
+                    alert("Error al cerrar sesión: " + data.message);
+                }
+            } catch (err) {
+                console.error("Error de conexión:", err);
+                alert("Error de conexión con el servidor.");
+            }
+        });
+
+        // Inicializar al cargar la página
+        window.onload = verificarSesion;
+    </script>
+</body>
+</html>

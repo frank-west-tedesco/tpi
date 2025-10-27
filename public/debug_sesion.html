@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debug Sesión</title>
+</head>
+<body>
+    <h1>Debug de Sesión</h1>
+    <div id="resultado"></div>
+    
+    <script>
+    document.addEventListener("DOMContentLoaded", async () => {
+        try {
+            const res = await fetch('/api/sesion', {
+                method: 'GET',
+                credentials: 'include'
+            });
+            
+            const data = await res.json();
+            
+            document.getElementById('resultado').innerHTML = `
+                <h2>Respuesta de /api/sesion:</h2>
+                <pre>${JSON.stringify(data, null, 2)}</pre>
+                
+                <h3>Análisis del rol:</h3>
+                <p>Valor del rol: <strong>${data.user?.role}</strong></p>
+                <p>Tipo del rol: <strong>${typeof data.user?.role}</strong></p>
+                <p>¿Es igual a 3? ${data.user?.role === 3}</p>
+                <p>¿Es igual a "3"? ${data.user?.role === "3"}</p>
+                <p>¿Es igual a "dep_alumnado"? ${data.user?.role === "dep_alumnado"}</p>
+            `;
+            
+        } catch (err) {
+            document.getElementById('resultado').innerHTML = `
+                <h2>Error:</h2>
+                <pre>${err.message}</pre>
+            `;
+        }
+    });
+    </script>
+</body>
+</html>

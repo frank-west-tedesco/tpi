@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css2?family=Gupter:wght@400;700&display=swap');
+#tituloboletin{
+  text-align: center;
+    font-size: 25px;
+    font-family: sans-serif;
+    color: azure;
+    font-weight: 700;}
+*{
+scroll-behavior: smooth;
+box-sizing: border-box;
+margin: 0;
+padding: 0;
+font-family: "Gupter", serif;
+font-weight: 400;
+font-style: normal;}
+*{
+margin: 0;
+padding: 0;
+box-sizing: border-box;}
+body {
+background: linear-gradient(to bottom, rgb(116, 116, 112), rgb(43, 21, 21)); /*rojo, obvio, los locust tumbaron a la cgo y la guevara se les unio, tipico*/}
+.header{
+background: linear-gradient(to bottom, rgb(95, 1, 1), rgb(153, 19, 15));
+display: flex;
+justify-content: space-between;
+align-items: center;
+height: 125px;
+padding: 5px 10%;}
+.header .h2a {
+  text-align: center;}
+.header .logo {
+cursor: -webkit-grab;}
+.header .logo img{
+border-radius: 40px;
+height: 90px;
+width: 90px;
+transition: all 0.3s;}
+.header .logo img:hover{
+transform:scale(1.1); }
+.header .nav-links a{
+font-size: 30px;
+color: rgb(195, 204, 198);
+text-decoration: none;}
+.header .nav-links li a:hover{
+color: azure;
+text-decoration: none;
+font-size: 38px;}
+.header .nav-links{
+list-style: none;}
+.header .nav-links li{
+display: inline-block;
+padding: 0 50px;}
+table {
+    width: 100%;
+    border-collapse: collapse;}
+  th, td {
+    padding: 10px;
+    border: 1px solid #3d0606;
+    background-color: rgb(240, 211, 173);
+    text-align: center;}
+  h1 {
+    text-align: center;
+    font-size: 140%;
+    background-color: #2e2e2e; 
+    color: #cacaca; }
+body {
+    display: flex;
+    flex-direction: column;}
+.content {
+    padding: 5px 10%;
+    flex: 1; 
+    padding: 20px;
+    color: rgb(57, 61, 61);
+    background-color: #cf0a0a;}
+button {
+    --primary-color: #be2929;
+    --secondary-color: #fff;
+    --hover-color: #111;
+    --arrow-width: 10px;
+    --arrow-stroke: 2px;
+    box-sizing: border-box;
+    border: 1;
+    border-radius: 20px;
+    border-style: solid;
+    border-color: rgb(20, 8, 8);
+    color: var(--secondary-color);
+    padding: 1em 1.8em;
+    background: var(--primary-color);
+    display: flex;
+    transition: 0.2s background;
+    align-items: center;
+    gap: 0.6em;
+    font-weight: bold;}
+  button .arrow-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;}  
+  button .arrow {
+    margin-top: 1px;
+    width: var(--arrow-width);
+    background: var(--primary-color);
+    height: var(--arrow-stroke);
+    position: relative;
+    transition: 0.2s;}
+  button .arrow::before {
+    content: "";
+    box-sizing: border-box;
+    position: absolute;
+    border: solid var(--secondary-color);
+    border-width: 0 var(--arrow-stroke) var(--arrow-stroke) 0;
+    display: inline-block;
+    top: -3px;
+    right: 3px;
+    transition: 0.2s;
+    padding: 3px;
+    transform: rotate(-45deg); }
+  button:hover {
+    background-color: var(--hover-color);
+    transform: scale(1.2)}
+  button:hover .arrow {
+    background: var(--secondary-color);}
+  button:hover .arrow:before {
+    right: 0;}
+.footer{
+    background: linear-gradient(to bottom, rgb(92, 11, 11), rgb(36, 3, 3));
+        position:sticky;
+        width: 100%;
+        bottom:auto;
+        color: #fff;
+        height: auto;
+        margin-top: 1px;
+        align-items: center;
+        border-top: 3px solid #440404;
+        display: grid;}
+          .footer .nav-links{
+          list-style:none;}
+          .footer .nav-links li{
+          display:inline-table;
+          padding: 0 50px;}
+.footer .logo {
+    border-radius: 30px;}
+.footer .logo img {
+    cursor: pointer;
+    border-radius: 100px;}
+.footer .logo img:hover {
+    cursor: pointer;
+    border-radius: 100px;
+    transform: scale(1.05);
+    transition: all 0.2s;}
